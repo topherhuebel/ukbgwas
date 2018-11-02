@@ -1,0 +1,2 @@
+#### reducing hrc to one column
+for i in `seq 1 22`; do awk '{print $1}' /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/SNPs_In_HRC_Or_Genotyped_Chr${i}.txt > /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/SNPs_In_HRC_Or_Genotyped_Chr${i}_list.txt; done
