@@ -1,0 +1,46 @@
+#THIS SCRIPT EXECUTES AN ANALYSIS OF TWO STUDIES
+
+SCHEME STDERR
+
+
+# === DESCRIBE AND PROCESS THE FIRST INPUT FILE: Female ===
+MARKER rsid
+ALLELE a_0 a_1
+EFFECT BFPC_residuals_h_female_beta
+STDERRLABEL BFPC_residuals_h_female_se
+PVALUE BFPC_residuals_h_female_p
+WEIGHTLABEL DONTUSECOLUMN
+DEFAULTWEIGHT 70700
+AVERAGEFREQ ON
+FREQLABEL af
+CUSTOMVARIABLE chr
+LABEL chr AS chr
+CUSTOMVARIABLE beta_female_x2
+LABEL beta_female_x2 AS BFPC_residuals_h_female_beta
+CUSTOMVARIABLE se_female_x2
+LABEL se_female_x2 AS BFPC_residuals_h_female_se
+CUSTOMVARIABLE p_female_x2
+LABEL p_female_x2 AS BFPC_residuals_h_female_p
+CUSTOMVARIABLE beta_male_x2
+LABEL beta_male_x2 AS BFPC_residuals_h_male_beta
+CUSTOMVARIABLE se_male_x2
+LABEL se_male_x2 AS BFPC_residuals_h_male_se
+CUSTOMVARIABLE p_male_x2
+LABEL p_male_x2 AS BFPC_residuals_h_male_p
+PROCESS /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/BFPC_h_maf0.01.txt
+
+# === DESCRIBE AND PROCESS THE SECOND INPUT FILE: Male ===
+MARKER rsid
+ALLELE a_0 a_1
+EFFECT BFPC_residuals_h_male_beta
+STDERRLABEL BFPC_residuals_h_male_se
+PVALUE BFPC_residuals_h_male_p
+WEIGHTLABEL DONTUSECOLUMN
+DEFAULTWEIGHT 85261
+PROCESS /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/BFPC_h_maf0.01.txt
+
+OUTFILE /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/metal/bfpc/BFPC_h_metal_se .TBL
+
+ANALYZE HETEROGENEITY
+
+QUIT
