@@ -1,0 +1,10 @@
+DEFINE --pathOut /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/plots/miami --strSeparator COMMA 
+
+EASYIN --fileIn /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/sex_sumstats/PHENOTYPE_SAMPLE_maf0.01_meta_pos.txt --fileInShortName PHENOTYPE_SAMPLE_female_male_meta --fileInTag MIXED
+
+START EASYSTRATA
+
+QQPLOT --acolQQPlot p_male;p_female;Pvalue --astrColour #074A91;#A8170C;#EDD904 --anumSymbol 0;1;2 --numPvalOffset 0.05
+
+STOP EASYSTRATA
+

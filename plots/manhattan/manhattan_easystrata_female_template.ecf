@@ -1,0 +1,17 @@
+DEFINE --strSeparator COMMA --pathOut /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/plots/manhattan_easystrata --acolIn MarkerName;chr;pos;p_female --acolInClasses character;numeric;numeric;numeric
+
+EASYIN --fileIn /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/sex_sumstats/PHENOTYPE_SAMPLE_maf0.01_meta_pos.txt --fileInShortName PHENOTYPE_SAMPLE_female --fileInTag MIXED
+
+START EASYSTRATA
+
+MHPLOT --colMHPlot p_female
+       --colInChr chr
+       --colInPos pos
+       --astrDefaultColourChr #FF5E51;#B2190D
+       --numPvalOffset 0.05
+       --blnYAxisBreak 1
+       --numYAxisBreak 22
+       --astrAddPvalLineCol red
+       --anumAddPvalLineLty 6
+       
+STOP EASYSTRATA

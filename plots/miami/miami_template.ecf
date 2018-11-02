@@ -1,0 +1,9 @@
+DEFINE --strSeparator COMMA --pathOut /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/plots/miami --acolIn MarkerName;chr;pos;p_male;p_female --acolInClasses character;numeric;numeric;numeric;numeric
+
+EASYIN --fileIn /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/sex_sumstats/PHENOTYPE_SAMPLE_maf0.01_meta_pos.txt --fileInShortName PHENOTYPE_SAMPLE_female_male_meta --fileInTag MIXED
+
+START EASYSTRATA
+
+MIAMIPLOT --colMIAMIPlotUp p_female --colMIAMIPlotDown p_male --colInChr chr --colInPos pos --astrDefaultColourChrUp #FF5E51;#B2190D --astrDefaultColourChrDown #4C7EB2;#0A68CC --numPvalOffset 0.05 --blnYAxisBreak 1 --numYAxisBreak 22 --fileAnnot /mnt/lustre/groups/ukbiobank/usr/chris/500k/output/body_composition/sign_snps/PHENOTYPE_SAMPLE_maf0.01_meta_pos_signsnps_strata.txt --numAnnotPosLim 500000 --numAnnotPvalLim 5e-8 --anumAddPvalLine 5e-8 --astrAddPvalLineCol red --anumAddPvalLineLty 6
+
+STOP EASYSTRATA
